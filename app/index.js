@@ -1,5 +1,5 @@
-import './main.css';
+require('./main.css');
 
-import component from './component';
+var component = require('./component');
 
 document.body.appendChild(component());

@@ -1,7 +1,7 @@
-export default (text = 'Hello world!') => {
-  const element = document.createElement('div');
+module.exports = function () {
+  var element = document.createElement('div');
 
-  element.innerHTML = text;
+  element.innerHTML = 'Hello world!';
 
   return element;
 };
