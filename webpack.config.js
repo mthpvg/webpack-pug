@@ -39,6 +39,7 @@ const productionConfig = merge([
   parts.extractBundles([{
     name: 'vendor',
   }, ]),
+  parts.clean(PATHS.build),
 ]);
 
 const developmentConfig = merge([
