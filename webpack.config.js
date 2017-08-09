@@ -28,6 +28,9 @@ const productionConfig = merge([
   parts.extractCSS({
     use: 'css-loader'
   }),
+  parts.generateSourceMaps({
+    type: 'source-map'
+  }),
 ]);
 
 const developmentConfig = merge([
@@ -36,6 +39,14 @@ const developmentConfig = merge([
     port: '8080',
   }),
   parts.loadCSS(),
+  {
+    output: {
+      devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]',
+    },
+  },
+  parts.generateSourceMaps({
+    type: 'cheap-module-eval-source-map'
+  }),
 ]);
 
 module.exports = (env) => {

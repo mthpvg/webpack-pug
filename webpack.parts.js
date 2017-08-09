@@ -51,3 +51,7 @@ exports.extractCSS = ({ include, exclude, use }) => {
     plugins: [ plugin ],
   };
 };
+
+exports.generateSourceMaps = ({ type }) => ({
+  devtool: type,
+});
