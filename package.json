@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/mthpvg/webpack3-jade-jquery#readme",
   "devDependencies": {
+    "babili-webpack-plugin": "^0.1.2",
     "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^3.0.0",

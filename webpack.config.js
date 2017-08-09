@@ -40,6 +40,7 @@ const productionConfig = merge([
     name: 'vendor',
   }, ]),
   parts.clean(PATHS.build),
+  parts.minifyJavaScript(),
 ]);
 
 const developmentConfig = merge([
