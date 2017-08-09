@@ -9,32 +9,33 @@ const PATHS = {
   build: path.join(__dirname, 'build'),
 };
 
-const commonConfig = merge([
-  {
-    entry: {
-      app: PATHS.app,
-    },
-    output: {
-      path: PATHS.build,
-      filename: '[name].js',
-    },
-    plugins: [
-      new HtmlWebpackPlugin({
-        title: 'Webpack demo',
-      }),
-    ],
-
+const commonConfig = merge([{
+  entry: {
+    app: PATHS.app,
   },
-  parts.loadCSS(),
-]);
+  output: {
+    path: PATHS.build,
+    filename: '[name].js',
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Webpack demo',
+    }),
+  ],
+}]);
 
-const productionConfig = merge([]);
+const productionConfig = merge([
+  parts.extractCSS({
+    use: 'css-loader'
+  }),
+]);
 
 const developmentConfig = merge([
   parts.devServer({
     host: '0.0.0.0',
     port: '8080',
   }),
+  parts.loadCSS(),
 ]);
 
 module.exports = (env) => {
