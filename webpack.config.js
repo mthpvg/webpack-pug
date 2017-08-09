@@ -41,6 +41,20 @@ const productionConfig = merge([
   }, ]),
   parts.clean(PATHS.build),
   parts.minifyJavaScript(),
+  parts.minifyCSS({
+    options: {
+      discardComments: {
+        removeAll: true,
+      },
+      safe: true,
+    },
+  }),
+  {
+    output: {
+      chunkFilename: '[name].[chunkhash:8].js',
+      filename: '[name].[chunkhash:8].js',
+    },
+  },
 ]);
 
 const developmentConfig = merge([
