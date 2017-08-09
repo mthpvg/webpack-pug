@@ -31,6 +31,14 @@ const productionConfig = merge([
   parts.generateSourceMaps({
     type: 'source-map'
   }),
+  {
+    entry: {
+      vendor: ['jquery'],
+    },
+  },
+  parts.extractBundles([{
+    name: 'vendor',
+  }, ]),
 ]);
 
 const developmentConfig = merge([
