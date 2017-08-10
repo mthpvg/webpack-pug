@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
+const OpenPackPlugin = require('openpack');
 
 const parts = require('./webpack.parts');
 
@@ -78,6 +79,13 @@ const developmentConfig = merge([
   parts.generateSourceMaps({
     type: 'cheap-module-eval-source-map'
   }),
+  {
+    plugins: [
+      new OpenPackPlugin({
+        lan: true
+      })
+    ]
+  }
 ]);
 
 module.exports = (env) => {
