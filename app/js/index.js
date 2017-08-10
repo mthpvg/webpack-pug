@@ -1,4 +1,4 @@
-require('./main.css');
+require('../css/main.css');
 
 var $ = require('jquery');
 var component = require('./component');
