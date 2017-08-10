@@ -17,9 +17,16 @@ const commonConfig = merge([{
     path: PATHS.build,
     filename: '[name].js',
   },
+  module: {
+    rules: [
+        { test: /\.pug$/, loader: "pug-loader" },
+        { test: /\.json$/, loader: "json-loader" }
+    ]
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Webpack demo',
+      template: path.join(__dirname, 'app/views/index.pug'),
+      inject: 'body'
     }),
   ],
 }]);
