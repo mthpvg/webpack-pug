@@ -1,6 +1,5 @@
-require('../css/main.css');
+require('../css/index.css');
 
-var $ = require('jquery');
-var component = require('./component');
+var sayHello = require('./say_hello');
 
-$('body').append(component())
+console.log(sayHello('Mathieu'));
