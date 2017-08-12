@@ -13,7 +13,14 @@ module.exports = {
   module: {
     rules: [
         { test: /\.pug$/, loader: "pug-loader" },
-        { test: /\.json$/, loader: "json-loader" }
+        { test: /\.json$/, loader: "json-loader" },
+        {
+          test: /\.(jpg|jpeg|png|svg)$/,
+          loader: 'file-loader',
+          options: {
+            name: '[name].[hash:8].[ext]',
+          },
+        },
     ]
   },
   plugins: [
