@@ -5,6 +5,8 @@ const OpenPackPlugin = require('openpack');
 
 const parts = require('./webpack.parts');
 
+const developmentConfig = require('./webpack.dev')
+
 const PATHS = {
   app: path.join(__dirname, 'app/js'),
   build: path.join(__dirname, 'build'),
@@ -60,21 +62,7 @@ const productionConfig = merge([
   },
 ]);
 
-const developmentConfig = merge([
-  parts.devServer({
-    host: '0.0.0.0',
-    port: '8080',
-  }),
-  parts.loadCSS(),
-  {
-    output: {
-      devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]',
-    },
-  },
-  parts.generateSourceMaps({
-    type: 'cheap-module-eval-source-map'
-  }),
-]);
+
 
 module.exports = (env) => {
   if (env === 'production') {

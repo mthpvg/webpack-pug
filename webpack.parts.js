@@ -5,32 +5,6 @@ const BabiliPlugin = require('babili-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const cssnano = require('cssnano');
 
-exports.devServer = ({ host, port } = {}) => ({
-  devServer: {
-    historyApiFallback: true,
-    stats: 'errors-only',
-    host,
-    port,
-    overlay: {
-      errors: true,
-      warnings: true,
-    },
-  },
-});
-
-exports.loadCSS = ({ include, exclude } = {}) => ({
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        include,
-        exclude,
-
-        use: ['style-loader', 'css-loader'],
-      },
-    ],
-  },
-});
 
 exports.extractCSS = ({ include, exclude, use }) => {
   // Output extracted CSS to a file
