@@ -1,4 +1,4 @@
-# webpack3-pug-jquery
+# webpack3-pug
 
 ## Quick start
 ```bash

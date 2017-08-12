@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const pages = buildPages();
+
 
 module.exports = {
   entry: {
@@ -31,11 +33,19 @@ module.exports = {
       inject: 'body',
       chunks: ['index']
     }),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'app/pages/secondary/view/index.pug'),
-      filename: 'secondary/index.html',
+  ].concat(pages),
+};
+
+function buildPages() {
+  const config = require('./app/config.json');
+  return config.map(function (page) {
+    return new HtmlWebpackPlugin({
+      template: path.join(
+        __dirname, 'app/pages/' + page.name+ '/view/index.pug'
+      ),
+      filename: page.url + '/index.html',
       inject: 'body',
-      chunks: ['secondary']
-    }),
-  ],
+      chunks: [page.name]
+    })
+  });
 };
