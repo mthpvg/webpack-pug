@@ -1,4 +1,4 @@
-# webpack3-jade-jquery
+# webpack3-pug-jquery
 
 ## Quick start
 ```bash
