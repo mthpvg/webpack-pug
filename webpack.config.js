@@ -74,13 +74,6 @@ const developmentConfig = merge([
   parts.generateSourceMaps({
     type: 'cheap-module-eval-source-map'
   }),
-  {
-    plugins: [
-      new OpenPackPlugin({
-        lan: true
-      })
-    ]
-  }
 ]);
 
 module.exports = (env) => {
