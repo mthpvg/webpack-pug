@@ -6,33 +6,8 @@ const OpenPackPlugin = require('openpack');
 const parts = require('./webpack.parts');
 
 const developmentConfig = require('./webpack.dev')
+const commonConfig = require('./webpack.common')
 
-const PATHS = {
-  app: path.join(__dirname, 'app/js'),
-  build: path.join(__dirname, 'build'),
-};
-
-const commonConfig = merge([{
-  entry: {
-    app: PATHS.app,
-  },
-  output: {
-    path: PATHS.build,
-    filename: '[name].js',
-  },
-  module: {
-    rules: [
-        { test: /\.pug$/, loader: "pug-loader" },
-        { test: /\.json$/, loader: "json-loader" }
-    ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'app/views/index.pug'),
-      inject: 'body'
-    }),
-  ],
-}]);
 
 const productionConfig = merge([
   parts.extractCSS({
@@ -44,7 +19,7 @@ const productionConfig = merge([
   parts.extractBundles([{
     name: 'vendor',
   }, ]),
-  parts.clean(PATHS.build),
+  parts.clean(path.join(__dirname, 'build')),
   parts.minifyJavaScript(),
   parts.minifyCSS({
     options: {
