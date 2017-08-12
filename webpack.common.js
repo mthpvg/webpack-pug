@@ -37,7 +37,7 @@ module.exports = {
 };
 
 function buildPages() {
-  const config = require('./app/config.json');
+  const config = require('./app/pages/config.json');
   return config.map(function (page) {
     return new HtmlWebpackPlugin({
       template: path.join(
