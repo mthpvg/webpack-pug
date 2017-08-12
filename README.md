@@ -22,4 +22,5 @@ npm run build
   "name": "aboutus",
   "url": "about-us"
 }
+```
 - Create a file and its directories: *app/pages/aboutus/js/index.js*
