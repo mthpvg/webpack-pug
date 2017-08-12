@@ -1,5 +1,5 @@
 require('../css/index.css');
 
-var sayHello = require('./say_hello');
+var sayHello = require('./helpers/say_hello');
 
-console.log(sayHello('Mathieu'));
+console.log(sayHello('index page'));

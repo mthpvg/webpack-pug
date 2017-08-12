@@ -4,7 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: path.join(__dirname, 'app/js'),
+    index: path.join(__dirname, 'app/js/index.js'),
+    secondary: path.join(__dirname, 'app/js/secondary'),
   },
   output: {
     path: path.join(__dirname, 'build'),
@@ -26,7 +27,15 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'app/views/index.pug'),
-      inject: 'body'
+      filename: 'index.html',
+      inject: 'body',
+      chunks: ['index']
+    }),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'app/views/secondary.pug'),
+      filename: 'secondary/index.html',
+      inject: 'body',
+      chunks: ['secondary']
     }),
   ],
 };
