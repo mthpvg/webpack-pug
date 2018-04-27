@@ -1,4 +1,4 @@
-# webpack3-pug
+# webpack-pug
 
 ## Quick start
 ```bash
