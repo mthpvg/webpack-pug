@@ -2,6 +2,7 @@ const merge = require('webpack-merge');
 
 
 module.exports = {
+  mode: 'development',
   devServer: {
     historyApiFallback: true,
     host: '0.0.0.0',

@@ -11,6 +11,7 @@ const extractTextPlugin = new ExtractTextPlugin({
 });
 
 module.exports = {
+  mode: 'production',
   devtool: 'source-map',
   output: {
     chunkFilename: '[name].[chunkhash:8].js',
