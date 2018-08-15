@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const merge = require('webpack-merge');
 
 
@@ -11,6 +12,7 @@ module.exports = {
       errors: true,
       warnings: true,
     },
+    hot: true
   },
   devtool: 'cheap-module-eval-source-map',
   output: {
@@ -24,4 +26,7 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
 }
