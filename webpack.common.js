@@ -20,7 +20,6 @@ module.exports = {
           loader: "babel-loader"
         }
       },
-      { test: /\.pug$/, loader: "pug-loader" },
       {
         test: /\.(jpg|jpeg|png|svg)$/,
         loader: 'url-loader',
@@ -32,7 +31,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'app/pages/index/view/index.pug'),
+      template: path.join(__dirname, 'app/pages/index/view/index.html'),
       filename: 'index.html',
       inject: 'body',
       chunks: ['index', 'vendor']
