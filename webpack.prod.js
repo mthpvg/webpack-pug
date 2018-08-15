@@ -10,7 +10,7 @@ const cssnano = require('cssnano');
 
 module.exports = {
   mode: 'production',
-  devtool: 'cheap-source-map',
+  devtool: 'cheap-module-eval-source-map',
   output: {
     chunkFilename: '[name].[chunkhash:8].js',
     filename: '[name].[chunkhash:8].js',

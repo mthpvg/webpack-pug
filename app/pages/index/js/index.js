@@ -10,4 +10,4 @@ const Index = () => {
 ReactDOM.render(<Index />, document.getElementById('index'))
 
 // Necessary for hot module reloading.
-module.hot.accept()
+if (module.hot) module.hot.accept()

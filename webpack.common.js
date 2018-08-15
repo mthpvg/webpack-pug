@@ -8,6 +8,7 @@ module.exports = {
   entry: {
     index: path.join(__dirname, 'app/pages/index/js/index.js'),
     secondary: path.join(__dirname, 'app/pages/secondary/js/index.js'),
+    vendor: ['react', 'react-dom']
   },
   output: {
     path: path.join(__dirname, 'build'),
@@ -38,9 +39,21 @@ module.exports = {
       template: path.join(__dirname, 'app/pages/index/view/index.pug'),
       filename: 'index.html',
       inject: 'body',
-      chunks: ['index']
+      chunks: ['index', 'vendor']
     }),
   ].concat(pages),
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          chunks: 'initial',
+          name: 'vendor',
+          test: 'vendor',
+          enforce: true
+        }
+      }
+    }
+  }
 };
 
 function buildPages() {
