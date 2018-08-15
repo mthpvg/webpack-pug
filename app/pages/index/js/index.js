@@ -1,5 +1,10 @@
-require('../css/index.css');
+require('../css/index.css')
 
-var sayHello = require('../../../shared/js/say_hello');
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-console.log(sayHello('index page'));
+const Index = () => {
+  return <div>Hello Pauline!</div>
+}
+
+ReactDOM.render(<Index />, document.getElementById('index'))
